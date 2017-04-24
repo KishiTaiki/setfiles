@@ -216,15 +216,15 @@ main = do
        --thunderbird
        , ("M-m",spawn "thunderbird")
        -- Lock screen
-       , ("M1-C-l", spawn "xscreensaver-command -lock")
+       --, ("M1-C-l", spawn "xscreensaver-command -lock")
        -- Toggle compton (compsite manager)
-       , ("M1-C-t", spawn "bash toggle_compton.sh")
+       --, ("M1-C-t", spawn "bash toggle_compton.sh")
        -- Launch terminal
        , ("M-<Return>", spawn "terminator")
        -- Launch terminal with a float window
        --, ("M-S-<Return>", spawn "urxvt_float.sh")
        -- Insert a transparent panel
-       , ("M-S-t", spawn "python $HOME/Workspace/python/transparent.py")
+       --, ("M-S-t", spawn "python $HOME/Workspace/python/transparent.py")
        -- Launch file manager
        --, ("M-e", spawn "thunar")
        -- Launch web browser
@@ -242,7 +242,7 @@ main = do
        -- Volume setting media keys
        , ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 1+")
        , ("<XF86AudioLowerVolume>", spawn "amixer sset Master 1-")
-       , ("M-S-s", spawn "sleep 1 && xset dpms force off")
+       --, ("M-S-s", spawn "sleep 1 && xset dpms force off")
 
        --, ("<XF86AudioMute>"       , spawn "sound_volume_change_wrapper.sh m")
        -- Brightness Keys
@@ -251,13 +251,13 @@ main = do
        -- Take a screenshot (whole window)
        , ("<Print>", spawn "scrot")
        -- Take a screenshot (selected area)
-       , ("M-<Print>", spawn "scrot -s")
+       --, ("M-<Print>", spawn "scrot -s")
        -- Launch ipython qtconsole
        --, ("<XF86Calculator>", spawn "ipython qtconsole --matplotlib=inline")
        -- Toggle touchpad
-       , ("C-<Escape>", spawn "touchpad_toggle.sh")
+       --, ("C-<Escape>", spawn "touchpad_toggle.sh")
        -- Toggle trackpoint (Lenovo PC)
-       , ("M1-<Escape>", spawn "trackpoint_toggle.sh")
+       --, ("M1-<Escape>", spawn "trackpoint_toggle.sh")
        ]
 
 --------------------------------------------------------------------------- }}}
