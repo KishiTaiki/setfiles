@@ -113,7 +113,7 @@ cdpath=(.. ~ ~/prog)
 
 
 
-OMPT変数内で変数参照
+#PROMPT変数内で変数参照
 setopt prompt_subst
 
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
@@ -153,7 +153,7 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 precmd () { vcs_info }
 
 # プロンプト（左）
-PROMPT='%{$fg[green]%}[%n@%m]%{$reset_color%}'
+PROMPT='%{$fg[yellow]%}[%n@%m]%{$reset_color%}'
 PROMPT=$PROMPT'${vcs_info_msg_0_} %{${fg[green]}%}%}$%{${reset_color}%} '
 
 # プロンプト（右）
@@ -169,3 +169,4 @@ alias relogin='exec $SHELL -l'
 alias office='libreoffice'
 alias vim='nvim'
 alias cd..='cd ..'
+alias sl='sl -alF'

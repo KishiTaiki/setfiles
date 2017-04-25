@@ -226,7 +226,7 @@ main = do
        -- Insert a transparent panel
        --, ("M-S-t", spawn "python $HOME/Workspace/python/transparent.py")
        -- Launch file manager
-       --, ("M-e", spawn "thunar")
+       , ("M-e", spawn "nautilus")
        -- Launch web browser
        , ("M-w", spawn "firefox")
        -- Launch dmenu for launching applicatiton
