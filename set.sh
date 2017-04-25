@@ -5,3 +5,4 @@
 ./xmodmap/xmodmaplink.sh
 ./xmonad/xmonadlink.sh
 ./zshrc/zshrclink.sh
+./urxvt/urxvtlink.sh
