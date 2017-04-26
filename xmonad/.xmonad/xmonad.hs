@@ -156,8 +156,8 @@ main = do
        , ("M-C-<U>", withFocused (keysMoveWindow (0, -moveWD)))
        , ("M-C-<D>", withFocused (keysMoveWindow (0, moveWD)))
        -- Resize the focused window
-       , ("M-s"    , withFocused (keysResizeWindow (-resizeWD, resizeWD) (0.5, 0.5)))
-       , ("M-i"    , withFocused (keysResizeWindow (resizeWD, -resizeWD) (0.5, 0.5)))
+       --, ("M-s"    , withFocused (keysResizeWindow (-resizeWD, resizeWD) (0.5, 0.5)))
+       --, ("M-i"    , withFocused (keysResizeWindow (resizeWD, -resizeWD) (0.5, 0.5)))
        -- Increase / Decrese the number of master pane
        , ("M-S-;"  , sendMessage $ IncMasterN 1)
        , ("M--"    , sendMessage $ IncMasterN (-1))
@@ -172,8 +172,8 @@ main = do
        , ("M-S-l"  , shiftToNext)
        , ("M-S-h"  , shiftToPrev)
        -- CopyWindow
-       , ("M-v"    , windows copyToAll)
-       , ("M-S-v"  , killAllOtherCopies)
+       --, ("M-v"    , windows copyToAll)
+       --, ("M-S-v"  , killAllOtherCopies)
        -- Move the focus down / up
        , ("M-<D>"  , windows W.focusDown)
        , ("M-<U>"  , windows W.focusUp)
@@ -215,6 +215,9 @@ main = do
          ("M-n",spawn "kicad")
        --thunderbird
        , ("M-m",spawn "thunderbird")
+       --display
+       , ("M-d",spawn "xrandr --output DP1 --auto --right-of eDP1")
+       , ("M-S-d",spawn "xrandr --output DP1 --off ")
        -- Lock screen
        --, ("M1-C-l", spawn "xscreensaver-command -lock")
        -- Toggle compton (compsite manager)
@@ -222,7 +225,7 @@ main = do
        -- Launch terminal
        , ("M-<Return>", spawn "terminator")
        -- Launch terminal with a float window
-       --, ("M-S-<Return>", spawn "urxvt_float.sh")
+       --, ("M-S-<Return>", spawn "tmux")
        -- Insert a transparent panel
        --, ("M-S-t", spawn "python $HOME/Workspace/python/transparent.py")
        -- Launch file manager
