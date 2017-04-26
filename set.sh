@@ -6,3 +6,4 @@
 ./xmonad/xmonadlink.sh
 ./zshrc/zshrclink.sh
 ./urxvt/urxvtlink.sh
+./tex/texlink.sh
