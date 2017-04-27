@@ -1,3 +1,3 @@
 #! /bin/bash
 
-ln -sf ~/setfile/tex/.latexmkrc ~/.latexmkrc
+ln -sf ~/setfiles/tex/.latexmkrc ~/.latexmkrc
