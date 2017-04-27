@@ -5,6 +5,28 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 
+# Vanilla shell
+zplug "yous/vanilli.sh"
+
+# Additional completion definitions for Zsh
+zplug "zsh-users/zsh-completions"
+
+# Load the theme.
+#zplug "yous/lime"
+
+# ZSH port of Fish shell's history search feature
+zplug "zsh-users/zsh-history-substring-search", defer:2
+
+# Tracks your most used directories, based on 'frecency'.
+zplug "rupa/z", use:"*.sh"
+
+# A next-generation cd command with an interactive filter
+#zplug "b4b4r07/enhancd", use:init.sh
+
+# This plugin adds many useful aliases and functions.
+zplug "plugins/git",   from:oh-my-zsh
+
+
 # (2) インストールする
 if ! zplug check --verbose; then
   printf 'Install? [y/N]: '
@@ -21,6 +43,9 @@ autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 autoload -U colors && colors
 
+# enhancd config
+#export ENHANCD_COMMAND=ed
+#export ENHANCD_FILTER=ENHANCD_FILTER=fzy:fzf:peco
 
 ### history 設定
 HISTFILE=~/.zsh_historyx
@@ -122,6 +147,8 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないフ�
 zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
+zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
 # %b ブランチ情報
 # %a アクション名(mergeなど)
 # %c changes
@@ -137,11 +164,11 @@ PROMPT=$PROMPT'${vcs_info_msg_0_} %{${fg[green]}%}%}$%{${reset_color}%} '
 # プロンプト（右）
 RPROMPT='%{${fg[yellow]}%}[%~]%{${reset_color}%}'
 
-
-
+#export LSCOLORS=exfxcxdxbxegedabagacad
+#export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx 
-alias ls='ls --color'
+alias ls='ls --color -F'
 alias iphone='sudo ip link set enp0s20f0u1c4i2 up | sudo dhcpcd enp0s20f0u1c4i2 '
 alias relogin='exec $SHELL -l'
 alias office='libreoffice'
@@ -149,3 +176,4 @@ alias vim='nvim'
 alias cd..='cd ..'
 alias sl='sl -aF'
 alias mm='cmatrix'
+alias pdf='evince'
