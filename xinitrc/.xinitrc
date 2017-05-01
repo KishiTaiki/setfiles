@@ -5,6 +5,7 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+xmodmap $HOME/.Xmodmap
 #fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

@@ -94,10 +94,10 @@ endif
 
 filetype plugin indent on
 
-
+autocmd BufRead,BufNewFile *.slim setfiletype slim
 
 " シンタックスハイライト
-syntax on
+"syntax on
 set clipboard=unnamedplus
 
 " setting
@@ -137,7 +137,19 @@ set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 
+"set backspace=indent,eol,start "Backspaceキーの影響範囲に制限を設けない
+"set whichwrap=b,s,h,l,<,>,[,] "行頭行末の左右移動で行をまたぐ
+set scrolloff=8                "上下8行の視界を確保
+set sidescrolloff=16           " 左右スクロール時の視界を確保
+set sidescroll=1               " 左右スクロールは一文字づつ行う
+
+"行頭へ移動
+imap <C-a> <C-o>^
+"行末へ移動
+imap <C-s> <C-o>$
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -164,4 +176,16 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+"キー配置
+imap <C-j> <esc>
 
+"自動保管
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap < <><LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンド履歴の数

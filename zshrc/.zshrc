@@ -167,6 +167,13 @@ RPROMPT='%{${fg[yellow]}%}[%~]%{${reset_color}%}'
 #export LSCOLORS=exfxcxdxbxegedabagacad
 #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
+
+#java
+#export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
+#export PATH=$JAVA_HOME/bin:$PATH
+
+export PATH=$HOME/.gem/ruby/2.4.0/bin:$PATH
+
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx 
 alias ls='ls --color -F'
 alias iphone='sudo ip link set enp0s20f0u1c4i2 up | sudo dhcpcd enp0s20f0u1c4i2 '
@@ -177,3 +184,4 @@ alias cd..='cd ..'
 alias sl='sl -aF'
 alias mm='cmatrix'
 alias pdf='evince'
+alias rewifi='sudo ip link set wlp2s0 down | sudo ip link set wlp2s0 up'
