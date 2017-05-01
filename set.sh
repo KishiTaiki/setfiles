@@ -11,20 +11,23 @@ sudo pacman -S libreoffice gnuplot viewnior xsel thunderbird xrandr nautilus
 sudo pacman -S firefox scrot flashplugin
 sudo pacman -S texlive-langjapanese texlive-most ghostscript evince poppler-data
 
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 ./vimrc/vimrclink.sh
 ./xinitrc/xinitrclink.sh
 ./xmodmap/xmodmaplink.sh
 ./xmonad/xmonadlink.sh
 ./zshrc/zshrclink.sh
-./terminatorconfiglinck.sh
+./terminatorconflinck.sh
 ./urxvt/urxvtlink.sh
 ./tex/texlink.sh
+
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
+chsh -s /usr/local
 
 amixer sset Master unmute
 
 #tee /sys/class/backlight/acpi_video0/brightness <<< 5
-tee /sys/class/backlight/intel_backlight/brightness <<< 4000
+sudo tee /sys/class/backlight/intel_backlight/brightness <<< 4000

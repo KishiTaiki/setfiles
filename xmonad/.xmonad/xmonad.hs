@@ -185,7 +185,7 @@ main = do
        -- Shift the focused window to the master window
        , ("M-S-m"  , windows W.shiftMaster)
        -- Search a window and focus into the window
-       , ("M-g"    , windowPromptGoto myXPConfig)
+       --, ("M-g"    , windowPromptGoto myXPConfig)
        -- Search a window and bring to the current workspace
        , ("M-b"    , windowPromptBring myXPConfig)
        -- Move the focus to next screen (multi screen)
