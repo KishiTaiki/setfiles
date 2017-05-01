@@ -20,6 +20,7 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ./xmodmap/xmodmaplink.sh
 ./xmonad/xmonadlink.sh
 ./zshrc/zshrclink.sh
+./terminatorconfiglinck.sh
 ./urxvt/urxvtlink.sh
 ./tex/texlink.sh
 
