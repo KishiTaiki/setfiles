@@ -2,13 +2,13 @@
 
 sudo pacman -S xorg-server xorg-server-utils xorg-xinit
 sudo pacman -Ss xf86-video-intel
-sudo pacman -S zsh xmonad xmonad-contrib terminator neovim nitrogen openssh
+sudo pacman -S zsh xmonad xmonad-contrib terminator neovim nitrogen openssh xmobar alsa-utils
 sudo pacman -S otf-ipafont fcitx-im fcitx-configtool fcitx-mozc
 git clone https://github.com/b4b4r07/zplug ~/.zplug
 git clone https://github.com/mzyy94/RictyDiminished-for-Powerline ~/.local/share/fonts
 
 sudo pacman -S libreoffice gnuplot viewnior xsel thunderbird xrandr nautilus 
-sudo pacman -S firefox scrot flashplugin
+sudo pacman -S firefox scrot flashplugin thunderbird nautilus
 sudo pacman -S texlive-langjapanese texlive-most ghostscript evince poppler-data
 
 
