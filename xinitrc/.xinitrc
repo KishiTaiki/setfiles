@@ -1,5 +1,5 @@
 #!/bin/sh
-
+sudo iwconfig wlp2s0 power off &
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -18,7 +18,7 @@ nitrogen --restore &
 compton &
 
 #dunst
-dunst &
+#dunst &
 
 # merge in defaults and keymaps
 

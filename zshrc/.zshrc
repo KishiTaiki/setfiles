@@ -176,12 +176,10 @@ export PATH=$HOME/.gem/ruby/2.4.0/bin:$PATH
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx 
 alias ls='ls --color -F'
-alias iphone='sudo ip link set enp0s20f0u1c4i2 up | sudo dhcpcd enp0s20f0u1c4i2 '
 alias relogin='exec $SHELL -l'
 alias office='libreoffice'
 alias vim='nvim'
 alias cd..='cd ..'
 alias sl='sl -aF'
-alias mm='cmatrix'
+alias mm='cmatrix -C cyan -b -u 1 -a '
 alias pdf='evince'
-alias rewifi='sudo ip link set wlp2s0 down | sudo ip link set wlp2s0 up'

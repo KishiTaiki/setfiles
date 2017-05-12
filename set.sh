@@ -2,7 +2,7 @@
 
 sudo pacman -S xorg-server xorg-server-utils xorg-xinit
 sudo pacman -Ss xf86-video-intel
-sudo pacman -S zsh xmonad xmonad-contrib terminator neovim nitrogen openssh xmobar alsa-utils
+sudo pacman -S zsh xmonad xmonad-contrib terminator neovim nitrogen openssh xmobar alsa-utils compton
 sudo pacman -S otf-ipafont fcitx-im fcitx-configtool fcitx-mozc
 git clone https://github.com/b4b4r07/zplug ~/.zplug
 git clone https://github.com/mzyy94/RictyDiminished-for-Powerline ~/.local/share/fonts
@@ -32,4 +32,4 @@ amixer sset Master unmute
 #tee /sys/class/backlight/acpi_video0/brightness <<< 5
 sudo tee /sys/class/backlight/intel_backlight/brightness <<< 4000
 
-sudo pacman -S libreoffice
+sudo pacman -S libreoffice slack-desktop bmuxd libplist ifuse libimobiledevice choqok

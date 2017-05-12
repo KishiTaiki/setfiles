@@ -212,7 +212,11 @@ main = do
        `additionalKeysP`
        [
        --kicad
-         ("M-n",spawn "kicad")
+       --  ("M-n",spawn "kicad")
+       --slack
+         ("M-s",spawn "slack")
+       --twitter
+       , ("M-t",spawn "choqok")
        --thunderbird
        , ("M-m",spawn "thunderbird")
        --display
