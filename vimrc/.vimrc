@@ -183,9 +183,6 @@ imap <C-j> <esc>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-inoremap < <><LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
 
 set wildmenu " コマンドモードの補完
 set history=5000 " 保存するコマンド履歴の数

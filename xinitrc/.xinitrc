@@ -16,7 +16,7 @@ fcitx -rd &
 #wallpaper
 nitrogen --restore &
 compton &
-
+dunst &
 #dunst
 #dunst &
 
