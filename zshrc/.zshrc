@@ -1,3 +1,4 @@
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx 
 source ~/.zplug/init.zsh
 
 # (1) プラグインを定義する
@@ -158,11 +159,13 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 precmd () { vcs_info }
 
 # プロンプト（左）
-PROMPT='%{$fg[blue]%}[%n@%m]%{$reset_color%}'
-PROMPT=$PROMPT'${vcs_info_msg_0_} %{${fg[green]}%}%}$%{${reset_color}%} '
+PROMPT='%{$fg[blue]%}[%n@%m]%{$reset_color%} %{${fg[yellow]}%}[%~]%{${reset_color}%} ${vcs_info_msg_0_}
+'
+PROMPT=$PROMPT'%{${fg[green]}%}%}>>>>%{${reset_color}%} '
+PROMPT2='%{${fg[green]}%}%}>>%{${reset_color}%}' 
 
 # プロンプト（右）
-RPROMPT='%{${fg[yellow]}%}[%~]%{${reset_color}%}'
+#RPROMPT='%{${fg[yellow]}%}[%~]%{${reset_color}%}'
 
 #export LSCOLORS=exfxcxdxbxegedabagacad
 #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -174,7 +177,6 @@ RPROMPT='%{${fg[yellow]}%}[%~]%{${reset_color}%}'
 
 export PATH=$HOME/.gem/ruby/2.4.0/bin:$PATH
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx 
 alias ls='ls --color -F'
 alias relogin='exec $SHELL -l'
 alias office='libreoffice'

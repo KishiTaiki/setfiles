@@ -7,7 +7,7 @@ sudo pacman -S otf-ipafont fcitx-im fcitx-configtool fcitx-mozc
 git clone https://github.com/b4b4r07/zplug ~/.zplug
 git clone https://github.com/mzyy94/RictyDiminished-for-Powerline ~/.local/share/fonts
 
-sudo pacman -S gnuplot viewnior xsel thunderbird xrandr nautilus 
+sudo pacman -S gnuplot viewnior xsel thunderbird xrandr thunar gvfs-smb
 sudo pacman -S firefox scrot flashplugin thunderbird nautilus
 sudo pacman -S texlive-langjapanese texlive-most ghostscript evince poppler-data
 

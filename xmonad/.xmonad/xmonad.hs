@@ -10,13 +10,14 @@
 -------------------------------------------------------------------------------
 -- Import modules                                                           {{{
 -------------------------------------------------------------------------------
+
+import XMonad
+import qualified XMonad.StackSet as W  -- myManageHookShift
+
 import qualified Data.Map as M
 import Control.Monad (liftM2)          -- myManageHookShift
 import Data.Monoid
 import System.IO                       -- for xmobar
-
-import XMonad
-import qualified XMonad.StackSet as W  -- myManageHookShift
 
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
@@ -34,6 +35,7 @@ import XMonad.Layout
 import XMonad.Layout.DragPane          -- see only two window
 import XMonad.Layout.Gaps
 import XMonad.Layout.LayoutScreens
+import XMonad.Layout.LayoutModifier
 import XMonad.Layout.NoBorders         -- In Full mode, border is no use
 import XMonad.Layout.PerWorkspace      -- Configure layouts on a per-workspace
 import XMonad.Layout.ResizableTile     -- Resizable Horizontal border
@@ -42,6 +44,8 @@ import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spacing           -- this makes smart space around windows
 import XMonad.Layout.ToggleLayouts     -- Full window at any time
 import XMonad.Layout.TwoPane
+--import XMonad.Layout.Fullscreen
+--import XMonad.Layout.IndependentScreens
 
 import XMonad.Prompt
 import XMonad.Prompt.Window            -- pops up a prompt with window names
@@ -83,8 +87,8 @@ resizeWD = 2*borderwidth
 gapwidth  = 10
 gwU = 47
 gwD = 11
-gwL = 56
-gwR = 56
+gwL = 20
+gwR = 20
 
 --------------------------------------------------------------------------- }}}
 -- main                                                                     {{{
@@ -104,18 +108,18 @@ main = do
        , manageHook         = myManageHookShift <+>
                               myManageHookFloat <+>
                               manageDocks
-       , layoutHook         = avoidStruts $ ( toggleLayouts (noBorders Full)
+       , layoutHook         = avoidStruts ( toggleLayouts (noBorders Full)
                                            -- $ onWorkspace "3" simplestFloat
-                                           -- $ onWorkspace "5" (
-                                               -- spacing 14
-                                               -- $ gaps [(U, 2),(D, 2),(L, 5),(R, 5)]
-                                               -- $ ResizableTall 0 (1/42) (1/2) [])
+                                            $ onWorkspace "9" (
+                                                spacing 14
+                                                $ gaps [(U, 2),(D, 2),(L, 5),(R, 5)]
+                                                $ ResizableTall 0 (1/42) (1/2) [])
                                             $ myLayout
                                             )
         -- xmobar setting
        , logHook            = myLogHook wsbar
                                 >> updatePointer (0.5, 0.5) (0, 0)
-       , handleEventHook    = fullscreenEventHook
+       --, handleEventHook    = fullscreenSupport --fullscreenEventHook
        , workspaces         = myWorkspaces
        , modMask            = modm
        , mouseBindings      = newMouse
@@ -149,7 +153,7 @@ main = do
        , ("M-c"    , kill1)
        -- Toggle layout (Fullscreen mode)
        , ("M-f"    , sendMessage ToggleLayout)
-       , ("M-S-f"  , withFocused (keysMoveWindow (-borderwidth,-borderwidth)))
+       --, ("M-S-f"  , withFocused (keysMoveWindow (-borderwidth,-borderwidth)))
        -- Move the focused window
        , ("M-C-<R>", withFocused (keysMoveWindow (moveWD, 0)))
        , ("M-C-<L>", withFocused (keysMoveWindow (-moveWD, 0)))
@@ -220,8 +224,8 @@ main = do
        --thunderbird
        , ("M-m",spawn "thunderbird")
        --display
-       , ("M-d",spawn "xrandr --output DP1 --auto --right-of eDP1")
-       , ("M-S-d",spawn "xrandr --output DP1 --off ")
+       , ("M-d",spawn "xrandr --auto")
+       , ("M-S-d",spawn "xrandr --off ")
        -- Lock screen
        --, ("M1-C-l", spawn "xscreensaver-command -lock")
        -- Toggle compton (compsite manager)
@@ -233,7 +237,7 @@ main = do
        -- Insert a transparent panel
        --, ("M-S-t", spawn "python $HOME/Workspace/python/transparent.py")
        -- Launch file manager
-       , ("M-e", spawn "nautilus")
+       , ("M-e", spawn "thunar")
        -- Launch web browser
        , ("M-w", spawn "firefox")
        -- Launch dmenu for launching applicatiton
