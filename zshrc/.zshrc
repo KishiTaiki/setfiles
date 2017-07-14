@@ -110,7 +110,7 @@ setopt share_history  # シェルのプロセスごとに履歴を共有
 setopt extended_history  # 履歴ファイルに時刻を記録
 #setopt hist_expand  # 補完時にヒストリを自動的に展開する。
 setopt append_history  # 複数の zsh を同時に使う時など history ファイルに上書きせず追加
-setopt auto_cd  # ディレクトリ名だけで移動
+#setopt auto_cd  # ディレクトリ名だけで移動
 setopt auto_pushd  # cd したら pushd
 setopt auto_list  # 補完候補が複数ある時に、一覧表示
 setopt auto_menu  # 補完候補が複数あるときに自動的に一覧表示する
@@ -132,11 +132,9 @@ setopt numeric_glob_sort  # 辞書順ではなく数字順に並べる。
 setopt magic_equal_subst  # コマンドライン引数の --prefix=/usr とか=以降でも補完
 setopt always_last_prompt  # 無駄なスクロールを避ける
 
-setopt AUTO_CD
 
-setopt AUTO_CD
-cdpath=(.. ~ ~/prog)
-
+#cdpath=(.. ~ ~/prog)
+function chpwd() { ls -AF --color }
 
 
 #PROMPT変数内で変数参照

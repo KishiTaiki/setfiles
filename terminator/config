@@ -39,7 +39,7 @@
     word_chars = "-,./x?%&#:_"
   [[black]]
     cursor_color = "#aaaaaa"
-    font = Mono 19
+    font = Ricty Diminished 14
     foreground_color = "#ffffff"
     login_shell = True
     show_titlebar = False
