@@ -186,3 +186,15 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 set wildmenu " コマンドモードの補完
 set history=5000 " 保存するコマンド履歴の数
+
+"let mapleader = ','
+"let maplocalleader = '.'
+"nnoremap \  .
+"nnoremap <Space>w  :<C-u>call s:ToggleOption('wrap')
+
+"Leader
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+
+"space and w is save
+nnoremap <Leader>w :w<CR>
